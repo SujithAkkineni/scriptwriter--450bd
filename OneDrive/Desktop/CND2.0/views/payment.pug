@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Payment Details
+  p Dish: #{dish.name}
+  p Price per unit: ₹#{dish.price}
+  p Quantity: #{quantity}
+  p Total Price: ₹#{dish.price * quantity}
+  p Delivery Address: #{address}
+
+  form(action=`/payment/${dish._id}`, method='POST')
+    input(type='hidden', name='address', value=address)
+    input(type='hidden', name='quantity', value=quantity)
+    label(for='buyer') Your Name:
+    input(type='text', id='buyer', name='buyer', required)
+    button(type='submit') Confirm Order

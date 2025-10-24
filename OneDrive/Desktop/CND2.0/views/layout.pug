@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title #{title || 'Cook Next Door'}
+    link(rel='stylesheet', href='/styles.css')
+  body
+    nav.navbar
+      .nav-container
+        a.nav-logo(href='/') Cook Next Door
+        .nav-links
+          a(href='/order') Order
+          a(href='/sell') Sell
+
+    main
+      block content
+
+    footer
+      p &copy; 2023 Cook Next Door. All rights reserved.

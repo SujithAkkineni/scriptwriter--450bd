@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Order Food
+  p Select a dish to order:
+
+  each dish in dishes
+    .dish
+      h3= dish.name
+      p Description: #{dish.description || 'No description available'}
+      p Price: ₹#{dish.price}
+      p Available Quantity: #{dish.quantity}
+      p Seller: #{dish.seller}
+      form(action=`/order/${dish._id}`, method='POST')
+        label(for=`quantity-${dish._id}`) Quantity:
+        input(type='number', id=`quantity-${dish._id}`, name='quantity', min='1', max=dish.quantity, required)
+        button(type='submit') Select Dish

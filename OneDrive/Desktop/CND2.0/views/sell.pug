@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Sell Your Dish
+  form(action='/sell', method='POST')
+    label(for='name') Dish Name:
+    input(type='text', id='name', name='name', required)
+    label(for='price') Price (₹):
+    input(type='number', id='price', name='price', min='1', required)
+    label(for='quantity') Quantity:
+    input(type='number', id='quantity', name='quantity', min='1', required)
+    label(for='description') Description:
+    textarea(id='description', name='description')
+    label(for='seller') Your Name:
+    input(type='text', id='seller', name='seller', required)
+    button(type='submit') List Dish
